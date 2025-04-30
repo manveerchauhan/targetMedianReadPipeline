@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-#SBATCH --partition="cascade" 
+#SBATCH --partition="sapphire" 
 #SBATCH --nodes=1 
 #SBATCH --account="punim2251" 
 #SBATCH --ntasks=1 
@@ -9,7 +9,7 @@
 #SBATCH --mail-type=END 
 #SBATCH --mail-user=mschauhan@student.unimelb.edu.au 
 #SBATCH --cpus-per-task=4 
-#SBATCH --mem=450gb 
+#SBATCH --mem=200gb 
 #time in days-hours:mins:sec
 #SBATCH --time=0-10:30:00  
 

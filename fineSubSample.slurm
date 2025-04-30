@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --partition="cascade"
+#SBATCH --partition="sapphire"
 #SBATCH --nodes=1
 #SBATCH --account="punim2251"
 #SBATCH --ntasks=1
@@ -8,22 +8,24 @@
 #SBATCH --mail-type=END
 #SBATCH --mail-user=mschauhan@student.unimelb.edu.au
 #SBATCH --cpus-per-task=4
-#SBATCH --mem=350gb
+#SBATCH --mem=100gb
 #time in days-hours:mins:sec
-#SBATCH --time=1-00:00:00
-
-source /home/mschauhan/anaconda3/bin/activate /home/mschauhan/.conda/envs/bbmap_env
-
-echo "Conda environment initialized"
+#SBATCH --time=0-10:00:00
 
 # Load modules
 module load GCC/11.3.0  
 module load OpenMPI/4.1.4 
 module load R/4.4.0
+module load Anaconda3/2024.02-1  
 
-fastq="/data/gpfs/projects/punim2251/LongBench_data/flames_out/ont_sn/matched_reads.fastq"
-outputDir="/data/gpfs/projects/punim2251/Aim1_LongBench/ReadRarefaction_wFixedCells/data/LongBench_All/ont_sn"
-targetMedians=(1291 517) # List of target medians to iterate over
+# Activate conda env with python and bbmap 
+eval "$(conda shell.bash hook)" 
+conda activate bbmap_env 
+echo "Conda environment initialized"  
+
+fastq="/data/gpfs/projects/punim2251/Neurodevelopmental_Models/iPSC_Neuron_Diff/matched_reads.fastq" 
+outputDir="/data/gpfs/projects/punim2251/Aim1_LongBench/ReadRarefaction_wFixedCells/data/iPSC_D55_Rarefaction"
+targetMedians=(15609 10406 5203 2081 1000 500) # List of target medians to iterate over
 
 
 for targetMedian in "${targetMedians[@]}"; do

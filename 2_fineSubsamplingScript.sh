@@ -22,7 +22,7 @@ for rate in "${sample_rates[@]}"; do
     output_file="${output_dir}/${rate}_percentRarified.fastq"
 
     # Subsample the FASTQ file using reformat.sh with the current sample rate
-    reformat.sh in="$fastq_file" out="$output_file" samplerate="$rate" sampleseed="$seed"
+    reformat.sh in="$fastq_file" out="$output_file" samplerate="$rate" sampleseed="$seed" qin=33
 
     # Call the R script to process the subsampled file and extract the median reads per barcode
     Rscript findMedianReadsPerCell.R "$output_dir" "$output_file" "$rate" "$subsample_type"
