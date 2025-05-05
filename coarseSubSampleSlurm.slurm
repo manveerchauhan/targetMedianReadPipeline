@@ -24,6 +24,6 @@ eval "$(conda shell.bash hook)"
 conda activate bbmap_env 
 echo "Conda environment initialized"  
 
-fastq="/data/gpfs/projects/punim2251/Neurodevelopmental_Models/iPSC_Neuron_Diff/matched_reads.fastq" 
-outputDir="/data/gpfs/projects/punim2251/Aim1_LongBench/ReadRarefaction_wFixedCells/data/iPSC_D55_Rarefaction"  
+fastq="/data/gpfs/projects/punim2251/Neurodevelopmental_Models/iPSC_Neuron_Diff/PromethION_dataset/FLAMES_out/matched_reads.fastq" 
+outputDir="/data/gpfs/projects/punim2251/Aim1_LongBench/ReadRarefaction_wFixedCells/data/iPSC_D55_Rarefaction_PromethION"  
 ./1_coarseSubsamplingScript.sh ${fastq} ${outputDir}

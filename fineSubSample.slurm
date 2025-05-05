@@ -8,9 +8,9 @@
 #SBATCH --mail-type=END
 #SBATCH --mail-user=mschauhan@student.unimelb.edu.au
 #SBATCH --cpus-per-task=4
-#SBATCH --mem=100gb
+#SBATCH --mem=50gb
 #time in days-hours:mins:sec
-#SBATCH --time=0-10:00:00
+#SBATCH --time=0-4:00:00
 
 # Load modules
 module load GCC/11.3.0  
@@ -23,9 +23,9 @@ eval "$(conda shell.bash hook)"
 conda activate bbmap_env 
 echo "Conda environment initialized"  
 
-fastq="/data/gpfs/projects/punim2251/Neurodevelopmental_Models/iPSC_Neuron_Diff/matched_reads.fastq" 
-outputDir="/data/gpfs/projects/punim2251/Aim1_LongBench/ReadRarefaction_wFixedCells/data/iPSC_D55_Rarefaction"
-targetMedians=(15609 10406 5203 2081 1000 500) # List of target medians to iterate over
+fastq="/data/gpfs/projects/punim2251/Neurodevelopmental_Models/iPSC_Neuron_Diff/PromethION_dataset/FLAMES_out/matched_reads.fastq" 
+outputDir="/data/gpfs/projects/punim2251/Aim1_LongBench/ReadRarefaction_wFixedCells/data/iPSC_D55_Rarefaction_PromethION"
+targetMedians=(69446 46298 23149 9260 4630 2315 926) # List of target medians to iterate over
 
 
 for targetMedian in "${targetMedians[@]}"; do
